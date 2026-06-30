@@ -1,30 +1,40 @@
-// 1. JavaScript Object 
-let studentDetail = {
-    name: "pushpraj pandey",
-    age: 20,
-    course: "BCA",
-    islearningcode: true
-};
-console.log("Student Profile:", studentDetail);
+// ==========================================
+// 1. COUNTER APPLICATION LOGIC (with Reset)
+// ==========================================
+let counterValue = document.querySelector("#counter-value");
+let incrementButton = document.querySelector("#increment-btn");
+let decrementButton = document.querySelector("#decrement-btn");
+let resetButton = document.querySelector("#reset-btn");
 
-// 2. Array of Objects 
-let laptopList = [
-    { brand: "Dell", ram: "8GB", price: 55000 },
-    { brand: "Macbook", ram: "16GB", price: 120000 }
-];
-console.log("First Laptop Brand:", laptopList[0].brand);
+let count = 0;
 
-// 3. Object Methods 
-let userProfile = {
-    name: "Pushpraj Pandey",
-    sayhello: function() {
-        console.log("Welcome back, Pushpraj! Let's code.");
-    }
-};
-userProfile.sayhello();
+if(incrementButton && decrementButton && resetButton) {
+    incrementButton.addEventListener("click", function() {
+        count = count + 1;
+        counterValue.innerText = count;
+    });
 
-// 4. Math Object & Random
-let roundedMarks = Math.round(85.7);
-let randomInteger = Math.floor(Math.random() * 10) + 1;
-console.log("Rounded Marks:", roundedMarks);
-console.log("Random Integer (1 to 10):", randomInteger);
+    decrementButton.addEventListener("click", function() {
+        count = count - 1;
+        counterValue.innerText = count;
+    });
+
+    resetButton.addEventListener("click", function() {
+        count = 0;
+        counterValue.innerText = count;
+    });
+}
+
+// ==========================================
+// 2. INPUT VALUE & GREETING LOGIC
+// ==========================================
+let heading = document.querySelector("#greeting-msg");
+let nameInput = document.querySelector("#user-name");
+let submitBtn = document.querySelector("#submit-btn");
+
+if(submitBtn) {
+    submitBtn.addEventListener("click", function() {
+        let enteredName = nameInput.value; 
+        heading.innerText = "Welcome to advanced DOM, " + enteredName + "!";
+    });
+}
