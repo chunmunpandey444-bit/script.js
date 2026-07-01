@@ -1,40 +1,48 @@
-// ==========================================
-// 1. COUNTER APPLICATION LOGIC (with Reset)
-// ==========================================
-let counterValue = document.querySelector("#counter-value");
-let incrementButton = document.querySelector("#increment-btn");
-let decrementButton = document.querySelector("#decrement-btn");
-let resetButton = document.querySelector("#reset-btn");
+// 1. Inputs aur Elements select karein
+let inputOne = document.querySelector("#num1");
+let inputTwo = document.querySelector("#num2");
+let addBtn = document.querySelector("#add-btn");
+let subBtn = document.querySelector("#sub-btn");
+let multiplyBtn = document.querySelector("#multiply-btn");
+let divideBtn = document.querySelector("#divide-btn");
+let resultHeading = document.querySelector("#calc-result");
 
-let count = 0;
-
-if(incrementButton && decrementButton && resetButton) {
-    incrementButton.addEventListener("click", function() {
-        count = count + 1;
-        counterValue.innerText = count;
-    });
-
-    decrementButton.addEventListener("click", function() {
-        count = count - 1;
-        counterValue.innerText = count;
-    });
-
-    resetButton.addEventListener("click", function() {
-        count = 0;
-        counterValue.innerText = count;
+// 2. Addition (+) Ka Logic
+if(addBtn) {
+    addBtn.addEventListener("click", function() {
+        let value1 = Number(inputOne.value);
+        let value2 = Number(inputTwo.value);
+        let sum = value1 + value2;
+        resultHeading.innerText = "Result: " + sum;
     });
 }
 
-// ==========================================
-// 2. INPUT VALUE & GREETING LOGIC
-// ==========================================
-let heading = document.querySelector("#greeting-msg");
-let nameInput = document.querySelector("#user-name");
-let submitBtn = document.querySelector("#submit-btn");
+// 3. Subtraction (-) Ka Logic
+if(subBtn) {
+    subBtn.addEventListener("click", function() {
+        let value1 = Number(inputOne.value);
+        let value2 = Number(inputTwo.value);
+        let difference = value1 - value2;
+        resultHeading.innerText = "Result: " + difference;
+    });
+}
 
-if(submitBtn) {
-    submitBtn.addEventListener("click", function() {
-        let enteredName = nameInput.value; 
-        heading.innerText = "Welcome to advanced DOM, " + enteredName + "!";
+// 4. Multiplication (*) Ka Logic
+if(multiplyBtn) {
+    multiplyBtn.addEventListener("click", function() {
+        let value1 = Number(inputOne.value);
+        let value2 = Number(inputTwo.value);
+        let product = value1 * value2;
+        resultHeading.innerText = "Result: " + product;
+    });
+}
+
+// 5. Division (/) Ka Logic
+if(divideBtn) {
+    divideBtn.addEventListener("click", function() {
+        let value1 = Number(inputOne.value);
+        let value2 = Number(inputTwo.value);
+        let quotient = value1 / value2;
+        resultHeading.innerText = "Result: " + quotient;
     });
 }
